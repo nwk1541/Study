@@ -1,5 +1,5 @@
 # Study
 
-|  |
+| Contents |
 |:---------|
 | [Graphics](Graphics/) |
