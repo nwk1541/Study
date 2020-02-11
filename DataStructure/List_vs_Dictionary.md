@@ -215,7 +215,7 @@ static void Main(string[] args) {
             l_list.Add(n_i);
         }
 
-        // Dictionary Remove함수 체크
+        // Dictionary Contains함수 체크
         Stopwatch dtime = new Stopwatch();
         dtime.Start();
 
@@ -227,7 +227,7 @@ static void Main(string[] args) {
         dtime.Stop();
         f_dtime += dtime.Elapsed.TotalMilliseconds;
 
-        // List Remove함수 체크
+        // List Contains함수 체크
         Stopwatch ltime = new Stopwatch();
         ltime.Start();
 
