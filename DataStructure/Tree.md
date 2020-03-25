@@ -27,8 +27,7 @@
 ```cs
 class Program {
     class Node {
-        List<Node> m_l_nodes = new List<Node>();
-        int m_n_index = 0;
+        List<Node> nodes = new List<Node>();
         string value;
 
         public Node(string val) {
@@ -36,7 +35,7 @@ class Program {
         }
 
         public void AddNode(Node node) {
-            m_l_nodes.Add(node);
+            nodes.Add(node);
         }
     }
 
@@ -54,7 +53,7 @@ class Program {
 }
 ```
 
-위 코드는 간단하게 트리를 구현해본것이고, 대부분의 기능을 생략했다
+위 코드는 간단하게 트리를 구현해본것이고, 대부분의 기능을 생략했다 이유는 단순히 트리를 표현하고자 구현한다면 너무 크기가 커져서이다.
 
 ## Tree의 종류
 
@@ -78,4 +77,81 @@ class Program {
 루트 노드에서 부터 't', 'te', 'ted' 와 같이 하나씩 가지치기를 하여 찾아나가는 방식이다. 특정 문자열을 찾기까지 O(n)의 시간복잡도를 가진다.
 
 ```
+public class Trie
+{
+    public class Node
+    {
+        public char Char { get; private set; } // 노드에 저장될 문자
+
+        bool isEnd; // 노드의 끝인지 여부
+        List<Node> nodes = new List<Node>(); // 이어지는 문자에 대한 각 노드들
+
+        public Node(char c)
+        {
+            Char = c;
+        }
+
+        public void SetEndOfString(bool isend)
+        {
+            isEnd = isend;
+        }
+
+        public List<Node> GetChildNodes()
+        {
+            return nodes;
+        }
+    }
+
+    Node root = new Node(' ');
+
+    public void InputString(string str)
+    {
+        char[] charArr = str.ToCharArray();
+        List<Node> childNodes = root.GetChildNodes();
+
+        Node child = null;
+
+        for(int idx = 0; idx < charArr.Length; idx++)
+        {
+            // 각 문자들을 자식 노드 리스트에서 검색
+            char ch = charArr[idx];
+            child = childNodes.Find((x) => x.Char == ch);
+            // 만약 없다면 새로 생성후 참조 변경
+            if(child == null)
+            {
+                child = new Node(ch);
+                childNodes.Add(child);
+            }
+            childNodes = child.GetChildNodes();
+        }
+        // 리프 노드 체크
+        child.SetEndOfString(true);
+    }
+
+    public bool FindString(string str)
+    {
+        bool isExist = false;
+        char[] charArr = str.ToCharArray();
+        List<Node> childNodes = root.GetChildNodes();
+
+        for(int idx = 0; idx < charArr.Length; idx++)
+        {
+            char ch = charArr[idx];
+            Node child = childNodes.Find((x) => x.Char == ch);
+            // TODO : 
+        }
+
+        return isExist;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Trie trie = new Trie();
+        trie.InputString("data");
+        trie.InputString("datas");
+    }
+}
 ```
