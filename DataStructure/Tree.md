@@ -130,18 +130,25 @@ public class Trie
 
     public bool FindString(string str)
     {
-        bool isExist = false;
         char[] charArr = str.ToCharArray();
-        List<Node> childNodes = root.GetChildNodes();
+        int length = charArr.Length;
 
-        for(int idx = 0; idx < charArr.Length; idx++)
+        List<Node> childNodes = root.GetChildNodes();
+        Node child = null;
+
+        for(int idx = 0; idx < length; idx++)
         {
             char ch = charArr[idx];
-            Node child = childNodes.Find((x) => x.Char == ch);
-            // TODO : 
+            child = childNodes.Find((x) => x.Char == ch);
+            // 자식 노드에서 한 문자라도 찾지 못했다면 없는것임
+            if (child == null)
+                return false;
+
+            childNodes = child.GetChildNodes();
         }
 
-        return isExist;
+        // 문자를 끝까지 찾았으며, 문자의 끝일 때 해당 문자열이 존재하는것
+        return child != null && child.IsEnd;
     }
 }
 
