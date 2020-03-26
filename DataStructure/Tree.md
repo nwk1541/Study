@@ -162,3 +162,119 @@ class Program
     }
 }
 ```
+
+이외에도 `Non-Binary Tree` 컴퓨터의 파일시스템을 생각해보면 유용하게 이용됨을 알 수 있다.
+
+### Binary Tree
+
+`Binary Tree`는 각 노드의 자식이 2개 이하인 형태의 트리를 말한다.
+이진트리라고도 하는데 활용도에 따라 여러가지로 나뉘어진다.
+
+![](./Img/binary_tree.PNG)
+
+그중 가장 유명한 `Binary Search Tree (BST)`에 대해 알아본다.
+
+각 노드는 자식으로 2개의 왼쪽 Subtree와 오른쪽 Subtree를 가진다.
+그리고 왼쪽 Subtree에는 루트보다 낮은값들만 모여있고, 오른쪽엔 루트보다 큰값들만 모여있다. 또한 이러한 룰은 각 서브트리에도 적용된다.
+
+왼쪽 Subtree로 내려간 순간 새로운 루트를 기준으로 왼쪽에는 루트보다 작은값이 오른쪽에는 루트보다 큰값이 위치하게 된다.
+
+따라서 전체 트리가 정렬되어 있는 것과 같은 효과를 가지게 되어 검색에 있어 선형 자료구조처럼 순차적으로 모든 노드를 검색하는 O(n)이 아니라, 매 검색마다 검색영역을 전반으로 줄여 O(logn)의 시간복잡도를 가지게 된다.
+
+이러한 조건을 만족하는 것이 `Binary Search Tree` 이다.
+
+```
+class Node
+{
+    public int value;
+    public Node left;
+    public Node right;
+
+    public Node(int val)
+    {
+        value = val;
+    }
+}
+
+class BinaryTree
+{
+    Node root;
+
+    public void Insert(int val)
+    {
+        if(root == null)
+        {
+            root = new Node(val);
+        }
+        else
+        {
+            Node node = root;
+            while(node != null)
+            {
+                int res = node.value.CompareTo(val);
+                if(res == 0)
+                {
+                    // 같은 값은 존재할 수 없다.
+                    break;
+                }
+                else if (res > 0)
+                {
+                    if(node.left == null)
+                    {
+                        node.left = new Node(val);
+                        break;
+                    }
+                    node = node.left;
+                }
+                else
+                {
+                    if(node.right == null)
+                    {
+                        node.right = new Node(val);
+                        break;
+                    }
+                    node = node.right;
+                }
+            }
+        }
+    }
+
+    public void Print()
+    {
+        TraverseRecursive(root);
+    }
+
+    void TraverseRecursive(Node node)
+    {
+        if (node == null) return;
+
+        Console.WriteLine(node.value);
+        TraverseRecursive(node.left);
+        TraverseRecursive(node.right);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        BinaryTree bst = new BinaryTree();
+        bst.Insert(5);
+        bst.Insert(9);
+        bst.Insert(1);
+        bst.Insert(7);
+        bst.Insert(2);
+        bst.Insert(15);
+        bst.Insert(6);
+        bst.Insert(11);
+        bst.Insert(20);
+
+        bst.Print();
+    }
+}
+```
+
+![](./Img/bst.PNG)
+
+해당 코드의 결과를 그림으로 그려보았다.
+
