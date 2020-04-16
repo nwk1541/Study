@@ -119,6 +119,7 @@ public class UIMgr : Singleton<UIMgr>
         RectTransform rect = objTf.GetComponent<RectTransform>();
         rect.offsetMin = Vector2.zero;
         rect.offsetMax = Vector2.zero;
+
         // 최상위로 보일수 있도록
         objTf.SetSiblingIndex(managedUIObjs.Count - 1);
 
