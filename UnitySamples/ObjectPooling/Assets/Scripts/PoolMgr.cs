@@ -79,6 +79,7 @@ public class PoolMgr : Singleton<PoolMgr>
         // 일단 비활성화 하고 사용하려는 곳에서 활성화
         go.name = assetName;
         go.SetActive(false);
+
         // 각 변수들 초기화
         Transform tf = go.transform;
         tf.SetParent(parent);
