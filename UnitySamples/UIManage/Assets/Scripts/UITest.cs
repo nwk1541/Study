@@ -8,29 +8,29 @@ public class UITest : MonoBehaviour
     {
         UIMgr.Inst.Open();
 
-        UIMgr.Inst.ShowPanel(UI_PANEL.MAIN);
+        UIMgr.Inst.ShowPanel(UI_PANEL.Main);
     }
 
     private void OnGUI()
     {
         if(GUI.Button(new Rect(0, 0, 100, 100), "Sample1"))
         {
-            UIMgr.Inst.ShowPanel(UI_PANEL.SAMPLE1);
+            UIMgr.Inst.ShowPanel(UI_PANEL.Sample1);
         }
 
         if (GUI.Button(new Rect(0, 100, 100, 100), "Sample2"))
         {
-            UIMgr.Inst.ShowPanel(UI_PANEL.SAMPLE1);
+            UIMgr.Inst.ShowPanel(UI_PANEL.Sample2);
         }
 
         if (GUI.Button(new Rect(0, 200, 100, 100), "Sample3"))
         {
-            UIMgr.Inst.ShowPanel(UI_PANEL.SAMPLE1);
+            UIMgr.Inst.ShowPanel(UI_PANEL.Sample3);
         }
 
         if (GUI.Button(new Rect(0, 300, 100, 100), "Sample4"))
         {
-            UIMgr.Inst.ShowPanel(UI_PANEL.SAMPLE1);
+            UIMgr.Inst.ShowPanel(UI_PANEL.Sample4);
         }
 
         if (GUI.Button(new Rect(0, 400, 100, 100), "ClosePanel"))
