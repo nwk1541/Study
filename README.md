@@ -2,6 +2,7 @@
 
 * 렌더링 파이프라인 각 과정에 대해 더 자세히 조사하고 내용 추가할 것
 * [Tree Expand](DataStructure/TreeEx.md) Red-Black Tree 내용 추가
+* UIManage 좀 별로임, 구조적으로 변경이 필요하고 동작에 대해 충분한 생각이 필요
 
 # Study
 
