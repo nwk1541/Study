@@ -57,7 +57,7 @@ while(i--) {
 
 ![](./Image/step6.PNG)
 
-7. 유니티 데이터에서 상단 툴바에 `Tools - Convert GameData` 클릭, `Data_Game.json` 생성 `Play` 하면 해당 데이터를 이용한 예제 확인 가능
+7. 유니티에서 상단 툴바에 `Tools - Convert GameData` 클릭, `Data_Game.json` 생성 `Play` 하면 해당 데이터를 이용한 예제 확인 가능
 
 p.s : 다른 시트의 데이터를 사용하고 싶다면 데이터 클래스 생성후 다른 데이터 클래스와 구조를 맞춘뒤, `LocalGameData`에 클래스를 추가하는 작업을 해주어야함
 
