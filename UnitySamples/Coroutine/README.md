@@ -36,14 +36,54 @@ public class CoroutineEx : MonoBehaviour
 
 또한 명확하게 해야하는 부분이 코루틴은 쓰레드가 아니다. 즉 비동기가 아니라는 뜻이다. (동시에 실행하지 않는다) 코루틴은 `yield` 키워드를 실행하기 전까지 완전하게 통제가 가능하다.
 
+코루틴의 주요 동작은 다음 두 가지에 의해 이루어진다.
+
+1. IEnumerator 인터페이스
+2. yeild 키워드
+
 ## IEnumerator 인터페이스
+
+[MS Docs IEnumerator 인터페이스](https://docs.microsoft.com/ko-kr/dotnet/api/system.collections.ienumerator?view=netframework-4.8)
+
+```cs
+public interface IEnumerator
+```
+
+`IEnumerator`는 일종의 루프에 대한 커서처럼 작동한다. (C# 에서는 컬렉션) 이 인터페이스는 다음과 같은 세가지를 구현하도록 하고 있다.
+
+```cs
+public Object Current { get; }
+public bool MoveNext();
+public void Reset(); // 꼭 구현할 필요 없음
+```
+
+`Current`가 현재 루프에 대한 요소를 가진 프로퍼티이고, `MoveNext()`는 현재 루프에서 더 진행할 것이 있는지 확인하는 함수다.
+
+MoveNext()가 호출이 되면 해당하는 로직을 수행한 후 결과는 Current 프로퍼티에 저장이 된다. 그리고 진행할 것이 없다면 false를 리턴하게 된다.
+
+원래대로라면 IEnumerator를 상속받은 클래스를 구현해서 인터페이스를 다 구현해줘야 하는데, C# 에서는 몇가지 룰만 따르면 컴파일러가 자동으로 해당 IEnumerator를 상속받은 클래스 구현체를 생성해준다. 이것을 `Iterator block` 이라고 한다.
+
+`Iterator block`에는 다음과 같은 룰이 존재한다.
+
+1. IEnumerator를 리턴할 것
+2. yield 키워드를 사용할 것
+
+그렇다면 yield 키워드는 무엇인가?
 
 ## yield 키워드
 
-`yield` 키워드는 `IEnumerator` 객체게 값을 전달하거나 반복의 종료를 알리기 위해 사용한다.
+[MS Docs yield](https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/yield)
+
+`yield` 키워드는 `IEnumerator` 객체에 값을 전달하거나 반복의 종료를 알리기 위해 사용한다.
 
 ```cs
 yield statement or Instruction();
 yield return object;
 yield break;
 ```
+
+즉, `yield return ~`은 MoveNext()를 true로 리턴하도록 하고 Current는 ~로 할당되도록 한다. `yield return break`는 MoveNext()가 false를 반환하도록 한다.
+
+# 결론
+
+정리하자면 코루틴은 C#의 Iterator block을 이용해서 IEnumerator 인터페이스의 구현체를 한번 래핑해놓은 것이다.
