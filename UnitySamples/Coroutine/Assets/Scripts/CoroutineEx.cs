@@ -67,24 +67,17 @@ public class CoroutineEx : MonoBehaviour
 
     private void Start()
     {
-        //Person[] peopleArray = new Person[3]
-        //{
-        //    new Person("John", "Smith"),
-        //    new Person("Jim", "Johnson"),
-        //    new Person("Sue", "Rabon"),
-        //};
-
-        //People peopleList = new People(peopleArray);
-        //foreach(Person p in peopleList)
-        //{
-        //    Debug.Log(p.firstName + " " + p.lastName);
-        //}
-
-        StartCoroutine(CoPeopleList());
+        IEnumerator et = CoEx();
+        while(et.MoveNext())
+        {
+            Debug.Log(et.Current);
+        }
     }
 
-    IEnumerator CoPeopleList()
+    IEnumerator CoEx()
     {
-        
+        yield return 3;
+        yield return 5;
+        yield return 7;
     }
 }

@@ -49,19 +49,23 @@ public class CoroutineEx : MonoBehaviour
 public interface IEnumerator
 ```
 
-`IEnumerator`는 일종의 루프에 대한 커서처럼 작동한다. (C# 에서는 컬렉션) 이 인터페이스는 다음과 같은 세가지를 구현하도록 하고 있다.
+`IEnumerator`는 특정한 시퀀스에 대한 커서처럼 작동한다.
+또한 인터페이스여서 다음과 같은 세가지를 구현하도록 하고 있다.
 
 ```cs
 public Object Current { get; }
 public bool MoveNext();
-public void Reset(); // 꼭 구현할 필요 없음
+public void Reset();
 ```
 
-`Current`가 현재 루프에 대한 요소를 가진 프로퍼티이고, `MoveNext()`는 현재 루프에서 더 진행할 것이 있는지 확인하는 함수다.
+* Current : 현재 시퀀스에 대한 요소를 가지는 프로퍼티
+* MoveNext() : 다음 시퀀스를 진행할 수 있는지의 여부
 
 MoveNext()가 호출이 되면 해당하는 로직을 수행한 후 결과는 Current 프로퍼티에 저장이 된다. 그리고 진행할 것이 없다면 false를 리턴하게 된다.
 
-원래대로라면 IEnumerator를 상속받은 클래스를 구현해서 인터페이스를 다 구현해줘야 하는데, C# 에서는 몇가지 룰만 따르면 컴파일러가 자동으로 해당 IEnumerator를 상속받은 클래스 구현체를 생성해준다. 이것을 `Iterator block` 이라고 한다.
+C# 에서는 몇가지 룰만 따르면 컴파일러가 자동으로 해당 IEnumerator를 상속받은 클래스 구현체를 생성해준다. 이것을 `Iterator block` 라고 하는것 같다.
+
+[Iterator Block](https://codeblog.jonskeet.uk/2011/01/18/gotcha-around-iterator-blocks/)
 
 `Iterator block`에는 다음과 같은 룰이 존재한다.
 
@@ -78,12 +82,38 @@ MoveNext()가 호출이 되면 해당하는 로직을 수행한 후 결과는 Cu
 
 ```cs
 yield statement or Instruction();
-yield return object;
-yield break;
+yield return object; // 값을 전달
+yield break; // 시퀀스 종료
 ```
 
-즉, `yield return ~`은 MoveNext()를 true로 리턴하도록 하고 Current는 ~로 할당되도록 한다. `yield return break`는 MoveNext()가 false를 반환하도록 한다.
+그렇다면 아래 예제코드를 통해 `yield`, `IEnumerator`의 동작을 살펴보자
 
-# 결론
+```cs
+private void Start()
+{
+    IEnumerator et = CoEx();
+    while(et.MoveNext())
+    {
+        Debug.Log(et.Current);
+    }
+}
 
-정리하자면 코루틴은 C#의 Iterator block을 이용해서 IEnumerator 인터페이스의 구현체를 한번 래핑해놓은 것이다.
+IEnumerator CoEx()
+{
+    yield return 3;
+    yield return 5;
+    yield return 7;
+}
+```
+
+1. while문 안에서 MoveNext()가 호출되면 CoEx()의 첫 yield문인 `yield return 3`을 만날때까지 실행
+2. 리턴되는 값이 존재하므로 MoveNext()는 `true`가 되고, Current 에는 리턴된 값인 3이 할당됨
+3. 다시 반복을 돌아 MoveNext()가 호출되면 이전에 실행됐던 yield 문의 바로 다음줄부터 재실행이됨, 그러므로 `yield return 5`를 수행하고 위 작업 반복
+
+![](./Img/out.PNG)
+
+실제로 유니티 코루틴은 매개변수로 IEnumerator를 받는다. 바로 코루틴의 함수가 실행되는게 아닌 IEnumerator의 포인터를 받는셈이다.
+
+> public Coroutine StartCoroutine(IEnumerator routine);
+
+또한 내부에서 `yield`를 만나게 되는 순간 `IEnumerator`의 구현체로 넘어가서 다음 반복을 진행할지 말지를 결정하고 그 다음 코드를 실행하게 된다. `yield` 키워드를 만나기 전까지는 코루틴은 완벽하게 일반함수와 동일하게 동작한다.
