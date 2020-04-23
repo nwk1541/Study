@@ -3,6 +3,9 @@
 * 렌더링 파이프라인 각 과정에 대해 더 자세히 조사하고 내용 추가할 것
 * [Tree Expand](DataStructure/TreeEx.md) Red-Black Tree 내용 추가
 * UIManager 좀 별로임, 구조적으로 변경이 필요하고 동작에 대해 충분한 생각이 필요
+
+# Readings
+
 * ColorSpace에 대한 이해1 https://www.kinematicsoup.com/news/2016/6/15/gamma-and-linear-space-what-they-are-how-they-differ
 * ColorSpace에 대한 이해2 https://www.cambridgeincolour.com/tutorials/gamma-correction.htm
 * CLR 아키텍쳐 https://www.geeksforgeeks.org/architecture-of-common-language-runtime-clr/
