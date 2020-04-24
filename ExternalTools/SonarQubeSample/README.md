@@ -101,7 +101,7 @@ SonarScanner.MSBuild.exe begin /k:"SonarQubeSample" /d:sonar.host.url="http://lo
 msbuild C:\Users\User\Desktop\Project\Study\ExternalTools\SonarQubeSample\SonarQubeSample.sln /t:Rebuild
 
 // 3. 분석도구 종료 : `end` 라는 명령어로 종료를 알린다. 똑같이 id/pw 를 파라미터로 넘겨준다.
-3.
+
 SonarScanner.MSBuild.exe end /d:sonar.login="admin" /d:sonar.password="admin" 
 ```
 
