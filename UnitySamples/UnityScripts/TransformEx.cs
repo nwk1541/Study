@@ -2,7 +2,7 @@
 
 public static class TransformEx
 {
-    public static Transform FindChildObject(this Transform target, string name)
+    public static Transform FindChildObj(this Transform target, string name)
     {
         Transform tf = target.Find(name);
 
@@ -19,15 +19,13 @@ public static class TransformEx
         return null;
     }
 
-    public static Transform FindChildObject(this Transform target, string name, bool includeInactive = true)
+    public static Transform FindChildObj(this Transform target, string name, bool includeInactive = true)
     {
-        Transform[] tf = parent.GetComponentsInChildren<Transform>(includeInactive);
-        foreach (Transform t in tf)
+        Transform[] childs = parent.GetComponentsInChildren<Transform>(includeInactive);
+        foreach (Transform tf in childs)
         {
-            if (t.name == name)
-            {
-                return t.gameObject;
-            }
+            if (tf.name == name)
+                return tf.gameObject;
         }
 
         return null;
