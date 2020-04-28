@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -6,38 +7,59 @@ namespace Util.Editor
 {
     public class AssetBundleMaker
     {
-        public static void Make()
+        static readonly string ASSET_BUNDLE_VARIANT = "unity3d";
+
+        public static void Make(Object[] objs)
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
+            BuildAssetBundles(objs);
         }
 
-        void BuildAssetBundles(AssetBundleBuild[] assetList = null)
+        static void BuildAssetBundles(Object[] objs)
         {
             string outputPath = Application.streamingAssetsPath;
 
             Init(outputPath);
 
-            // TODO : Fill AssetBundleBuild List...
+            List<AssetBundleBuild> assetBundleList = new List<AssetBundleBuild>();
+            for (int idx = 0; idx < objs.Length; idx++)
+            {
+                Object obj = objs[idx];
+                string assetPath = AssetDatabase.GetAssetPath(obj);
+                AssetImporter importer = AssetImporter.GetAtPath(assetPath);
+                if (importer == null)
+                {
+                    Debug.LogErrorFormat("AssetImporter is NULL, NAME : {0}, PATH : {1}", obj.name, assetPath);
+                    continue;
+                }
 
-            BuildPipeline.BuildAssetBundles(outputPath, BuildAssetBundleOptions.ChunkBasedCompression, EditorUserBuildSettings.activeBuildTarget);
+                string bundleName = importer.assetBundleName;
+                string bundleVariant = ASSET_BUNDLE_VARIANT;
+
+                AssetBundleBuild build = new AssetBundleBuild();
+                build.assetBundleName = bundleName;
+                build.assetBundleVariant = bundleVariant;
+                build.assetNames = AssetDatabase.GetAssetPathsFromAssetBundle(bundleName + "." + bundleVariant);
+            }
+
+            AssetBundleManifest manifest;
+
+            if(assetBundleList.Count == 0)
+                manifest = BuildPipeline.BuildAssetBundles(outputPath, BuildAssetBundleOptions.ChunkBasedCompression, EditorUserBuildSettings.activeBuildTarget);
+            else
+                manifest = BuildPipeline.BuildAssetBundles(outputPath, assetBundleList.ToArray(), BuildAssetBundleOptions.ChunkBasedCompression, EditorUserBuildSettings.activeBuildTarget);
+
+            //File.WriteAllText(outputPath);
         }
 
-        void Init(string path)
+        static void Init(string path)
         {
             // 스트리밍 애셋 폴더 있는지 검사
-            if (Directory.Exists(path))
+            if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
             // 플랫폼 폴더 있는지 검사
             path = path + Path.DirectorySeparatorChar + EditorUtility.GetPlatformName();
-            if (Directory.Exists(path))
+            if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
         }
     }

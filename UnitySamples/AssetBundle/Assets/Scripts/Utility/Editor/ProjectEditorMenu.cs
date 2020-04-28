@@ -9,7 +9,7 @@ namespace Util.Editor
         [MenuItem("Tools/AssetBundle/Make AssetBundles")]
         public static void MakeAssetBundles()
         {
-            AssetBundleMaker.Make();
+            AssetBundleMaker.Make(Selection.objects);
         }
 
         [MenuItem("Tools/Utility/Show Unity Native Paths")]
