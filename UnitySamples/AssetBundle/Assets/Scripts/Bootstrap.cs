@@ -7,14 +7,7 @@ public class Bootstrap : MonoBehaviour
 {
     void Start()
     {
-        AssetBundle bundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/Windows/Windows.manifest");
-        AssetBundleManifest manifest = bundle.LoadAsset("Windows") as AssetBundleManifest;
-        string[] dependencies = manifest.GetAllDependencies("samplecube");
-        foreach(string depend in dependencies)
-        {
-            string path = Path.Combine(Application.streamingAssetsPath + "/Windows", depend);
-            AssetBundle.LoadFromFile(path);
-        }
+        
     }
 
     private void OnGUI()
@@ -31,6 +24,18 @@ public class Bootstrap : MonoBehaviour
             AssetBundle bundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/Windows/samplecube2.unity3d");
             GameObject go = bundle.LoadAsset("samplecube2") as GameObject;
             Instantiate(go);
+        }
+
+        if(GUI.Button(new Rect(0, 200, 100, 100), "LoadDependency"))
+        {
+            AssetBundle bundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/Windows/Windows");
+            AssetBundleManifest manifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+            string[] dependencies = manifest.GetAllDependencies("samplecube.unity3d");
+            foreach (string depend in dependencies)
+            {
+                string path = Path.Combine(Application.streamingAssetsPath + "/Windows", depend);
+                AssetBundle.LoadFromFile(path);
+            }
         }
     }
 }
