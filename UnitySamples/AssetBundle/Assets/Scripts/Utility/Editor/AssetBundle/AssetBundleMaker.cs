@@ -21,45 +21,53 @@ namespace Util.Editor
         {
             Init(Application.streamingAssetsPath);
 
-            string targetPath = Application.dataPath + Path.DirectorySeparatorChar + "Resources/Prefabs";
-            PreProcessOnBuild(targetPath);
+            // 선택된게 없다면 전부다 만든다고 가정, 특정 폴더 밑에 있는 모든 리소스 애셋번들로
+            bool makeAll = objs == null || objs.Length == 0;
+            string[] guids = AssetDatabase.FindAssets("t:Object", new string[] { "Assets/Resources/Prefabs", "Assets/Resources/Atlas" });
 
             List<AssetBundleBuild> assetBundleList = new List<AssetBundleBuild>();
-            for (int idx = 0; idx < objs.Length; idx++)
+            int count = makeAll ? guids.Length : objs.Length;
+
+            for (int idx = 0; idx < count; idx++)
             {
-                Object obj = objs[idx];
-                string assetPath = AssetDatabase.GetAssetPath(obj);
-                AssetImporter importer = AssetImporter.GetAtPath(assetPath);
+                string path = makeAll ? AssetDatabase.GUIDToAssetPath(guids[idx]) : AssetDatabase.GetAssetPath(objs[idx]);
+                AssetImporter importer = AssetImporter.GetAtPath(path);
                 if (importer == null)
                 {
-                    Debug.LogErrorFormat("AssetImporter is NULL, NAME : {0}, PATH : {1}", obj.name, assetPath);
+                    Debug.LogErrorFormat("AssetImporter is NULL, PATH : {0}", path);
                     continue;
                 }
 
-                string bundleName = importer.assetBundleName;
+                string bundleName = Path.GetFileNameWithoutExtension(path);
                 string bundleVariant = ASSET_BUNDLE_VARIANT;
+
+                // 애셋번들 이름, 베리언츠 할당
+                importer.assetBundleName = bundleName;
+                importer.assetBundleVariant = bundleVariant;
+                importer.SaveAndReimport();
 
                 AssetBundleBuild build = new AssetBundleBuild();
                 build.assetBundleName = bundleName;
                 build.assetBundleVariant = bundleVariant;
-                build.assetNames = AssetDatabase.GetAssetPathsFromAssetBundle(bundleName + "." + bundleVariant);
+                build.assetNames = AssetDatabase.GetAssetPathsFromAssetBundle(importer.assetBundleName + "." + bundleVariant);
                 assetBundleList.Add(build);
             }
 
+            // 최종 Path
             string outputPath = Application.streamingAssetsPath + Path.DirectorySeparatorChar + EditorUtility.GetPlatformName();
-            AssetBundleManifest manifest;
 
-            //if (assetBundleList.Count == 0)
-                //manifest = BuildPipeline.BuildAssetBundles(outputPath, buildOption, buildTarget);
-            //else
-                //manifest = BuildPipeline.BuildAssetBundles(outputPath, assetBundleList.ToArray(), buildOption, buildTarget);
+            if (assetBundleList.Count == 0)
+                BuildPipeline.BuildAssetBundles(outputPath, buildOption, buildTarget);
+            else
+                BuildPipeline.BuildAssetBundles(outputPath, assetBundleList.ToArray(), buildOption, buildTarget);
 
-            // TODO : Write AssetBundleManifest 
-            //File.WriteAllText(outputPath);
             Debug.LogFormat("--- Make AssetBundle Finish, PATH : {0}, OPTION : {1}, PLATFORM : {2}, TOTAL_COUNT : {3}", outputPath, buildOption, buildTarget, assetBundleList.Count);
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+
+            AssetDatabase.RemoveUnusedAssetBundleNames();
+
             Debug.Log("--- AssetDatabase Save & Refresh");
         }
 
@@ -73,22 +81,6 @@ namespace Util.Editor
             path = path + Path.DirectorySeparatorChar + EditorUtility.GetPlatformName();
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-        }
-
-        static void PreProcessOnBuild(string targetPath)
-        {
-            string[] guids = AssetDatabase.FindAssets("t:Object", new string[] { "Assets/Resources/Prefabs" });
-
-            for (int idx = 0; idx < guids.Length; idx++)
-            {
-                string path = AssetDatabase.GUIDToAssetPath(guids[idx]);
-                AssetImporter importer = AssetImporter.GetAtPath(path);
-                importer.assetBundleName = importer.name;
-                importer.assetBundleVariant = ASSET_BUNDLE_VARIANT;
-            }
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
         }
     }
 }
