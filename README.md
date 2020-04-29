@@ -10,6 +10,7 @@
 * ColorSpace에 대한 이해2 https://www.cambridgeincolour.com/tutorials/gamma-correction.htm
 * CLR 아키텍쳐 https://www.geeksforgeeks.org/architecture-of-common-language-runtime-clr/
 * CG http://developer.download.nvidia.com/CgTutorial/cg_tutorial_chapter01.html
+* 유니티 씬 https://stackoverflow.com/questions/20916826/understanding-scenes-in-unity3d
 
 # Study
 
