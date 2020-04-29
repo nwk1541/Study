@@ -48,6 +48,7 @@ namespace Util.Editor
             else
                 manifest = BuildPipeline.BuildAssetBundles(outputPath, assetBundleList.ToArray(), BuildAssetBundleOptions.ChunkBasedCompression, EditorUserBuildSettings.activeBuildTarget);
 
+            // TEST:
             //File.WriteAllText(outputPath);
         }
 
