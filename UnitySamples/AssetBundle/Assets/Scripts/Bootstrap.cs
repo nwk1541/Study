@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class Bootstrap : MonoBehaviour
 {
     void Start()
     {
-        
+
     }
 
     private void OnGUI()
@@ -36,6 +37,11 @@ public class Bootstrap : MonoBehaviour
                 string path = Path.Combine(Application.streamingAssetsPath + "/Windows", depend);
                 AssetBundle.LoadFromFile(path);
             }
+        }
+
+        if(GUI.Button(new Rect(0, 300, 100, 100), "LoadPanel"))
+        {
+            //AssetBundle bundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/Windows/")
         }
     }
 }
