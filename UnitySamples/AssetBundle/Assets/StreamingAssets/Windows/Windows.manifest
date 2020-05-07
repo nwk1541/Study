@@ -1,15 +1,13 @@
 ManifestFileVersion: 0
-CRC: 1120853172
+CRC: 1074936460
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: samplecube.unity3d
-      Dependencies:
-        Dependency_0: samplematerial.unity3d
+      Name: samplepanel.unity3d
+      Dependencies: {}
     Info_1:
-      Name: samplecube2.unity3d
-      Dependencies:
-        Dependency_0: samplematerial.unity3d
+      Name: samplepanel2.unity3d
+      Dependencies: {}
     Info_2:
-      Name: samplematerial.unity3d
+      Name: common.unity3d
       Dependencies: {}
