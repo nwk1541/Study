@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1605651410
+CRC: 861637645
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e13830d77e44f5e9c9d01f21ae1ce6aa
+    Hash: 6b35b081381eb941dfa972db412b45d0
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7c9f0c774f7d1903bd1e8c798f367eb3
+    Hash: ee42f4ef0798608f7612c9225f0971e9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,16 +17,13 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 23
   Script: {instanceID: 0}
-- Class: 28
-  Script: {instanceID: 0}
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
-  Script: {instanceID: 0}
-- Class: 48
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
 Assets:
 - Assets/@Resources/Prefabs/SampleCube.prefab
-Dependencies: []
+Dependencies:
+- C:/Users/User/Desktop/Project/Study/UnitySamples/AssetBundle/Assets/StreamingAssets/Windows/samplematerial.unity3d
