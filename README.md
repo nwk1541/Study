@@ -10,9 +10,8 @@
 * ColorSpace에 대한 이해2 https://www.cambridgeincolour.com/tutorials/gamma-correction.htm
 * CLR 아키텍쳐 https://www.geeksforgeeks.org/architecture-of-common-language-runtime-clr/
 * CG http://developer.download.nvidia.com/CgTutorial/cg_tutorial_chapter01.html
-* 유니티 씬 https://stackoverflow.com/questions/20916826/understanding-scenes-in-unity3d
 * 유니티 세팅 https://stackoverflow.com/questions/47813465/unity3d-why-scripting-runtime-version-is-net3-5-but-api-compatibility-level
-* 유니티 애셋번들 https://learn.unity.com/tutorial/assets-resources-and-assetbundles#5c7f8528edbc2a002053b5a9
+* Flutter https://medium.com/@pks2974/flutter-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-9532e16aff57
 
 # Study
 
