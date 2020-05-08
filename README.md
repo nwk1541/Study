@@ -12,6 +12,7 @@
 * CG http://developer.download.nvidia.com/CgTutorial/cg_tutorial_chapter01.html
 * 유니티 세팅 https://stackoverflow.com/questions/47813465/unity3d-why-scripting-runtime-version-is-net3-5-but-api-compatibility-level
 * Flutter https://medium.com/@pks2974/flutter-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-9532e16aff57
+* Unity ODR https://docs.unity3d.com/kr/2018.4/Manual/AppThinning.html
 
 # Study
 
