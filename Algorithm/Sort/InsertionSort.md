@@ -47,14 +47,18 @@ namespace ConsoleApp2
             {
                 for(int idx = 1; idx < list.Count; idx++)
                 {
+                    int current = list[idx];
                     for(int secIdx = 0; secIdx < idx; secIdx++)
                     {
                         if (list[idx] > list[secIdx])
                             continue;
 
+                        int compare = list[secIdx];
+
                         int tmp = list[idx];
                         list[idx] = list[secIdx];
                         list[secIdx] = tmp;
+                        Console.WriteLine("Element : {0}, Idx : {1} -> {2}, Element : {3}, Idx : {4} -> {5}", current, idx, secIdx, compare, secIdx, idx);
                     }
                 }
             }
@@ -72,11 +76,13 @@ namespace ConsoleApp2
 
             Console.WriteLine("--- Before Sort");
             InsertionSort.Print(data);
+            Console.WriteLine("--------------\n");
 
             InsertionSort.Sort(data);
 
-            Console.WriteLine("--- After Sort");
+            Console.WriteLine("\n--- After Sort");
             InsertionSort.Print(data);
+            Console.WriteLine("--------------");
         }
     }
 }
