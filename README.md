@@ -50,9 +50,3 @@
 | [1011 Fly me to the Alpha Centauri](OnlineJudge/1011.md) |
 | [1012 유기농 배추](OnlineJudge/1012.md) |
 | [1009 분산처리](OnlineJudge/1009.md) |
-
-| 찾아볼 것 |
-|:---------|
-| 위상정렬 |
-| BFS |
-| DFS |

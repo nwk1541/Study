@@ -72,16 +72,14 @@ public class Bootstrap : MonoBehaviour
 
         if (GUI.Button(new Rect(0, 500, 100, 100), "LoadPanelDependency"))
         {
-            AssetBundle bundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/Windows/common.unity3d");
-            SpriteAtlas go = bundle.LoadAsset("common") as SpriteAtlas;
-            //AssetBundle bundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/Windows/Windows");
-            //AssetBundleManifest manifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
-            //string[] dependencies = manifest.GetAllDependencies("samplepanel.unity3d");
-            //foreach (string depend in dependencies)
-            //{
-            //    string path = Path.Combine(Application.streamingAssetsPath + "/Windows", depend);
-            //    AssetBundle.LoadFromFile(path);
-            //}
+            AssetBundle bundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/Windows/Windows");
+            AssetBundleManifest manifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+            string[] dependencies = manifest.GetAllDependencies("samplepanel.unity3d");
+            foreach (string depend in dependencies)
+            {
+                string path = Path.Combine(Application.streamingAssetsPath + "/Windows", depend);
+                AssetBundle tmp = AssetBundle.LoadFromFile(path);
+            }
         }
     }
 }

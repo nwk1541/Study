@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2105526149
+CRC: 3187797736
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9b89422a3775d8103c74052587fef8e6
+    Hash: fa36505caeaee8cc18e5da401a565a9a
   TypeTreeHash:
     serializedVersion: 2
     Hash: f75719d3b684ff852c31fed6769157e4
@@ -23,4 +23,6 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/@Resources/Prefabs/SamplePanel2.prefab
-Dependencies: []
+Dependencies:
+- C:/Users/User/Desktop/Project/Study/UnitySamples/AssetBundle/Assets/StreamingAssets/Windows/menu.unity3d
+- C:/Users/User/Desktop/Project/Study/UnitySamples/AssetBundle/Assets/StreamingAssets/Windows/pause.unity3d

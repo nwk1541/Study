@@ -1,13 +1,30 @@
 ManifestFileVersion: 0
-CRC: 1074936460
+CRC: 4029314949
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: samplepanel.unity3d
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: checkmark.unity3d
+        Dependency_1: menu.unity3d
+        Dependency_2: pause.unity3d
     Info_1:
       Name: samplepanel2.unity3d
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: menu.unity3d
+        Dependency_1: pause.unity3d
     Info_2:
       Name: common.unity3d
+      Dependencies:
+        Dependency_0: checkmark.unity3d
+        Dependency_1: menu.unity3d
+        Dependency_2: pause.unity3d
+    Info_3:
+      Name: checkmark.unity3d
+      Dependencies: {}
+    Info_4:
+      Name: menu.unity3d
+      Dependencies: {}
+    Info_5:
+      Name: pause.unity3d
       Dependencies: {}

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2918808216
+CRC: 3623365884
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8a859122c9d0cd976e9bf35abb53439e
+    Hash: 6c43e24059cc19b0e777150a99037d7b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 8d614ba2bf78fe185c64b512c1591e5d
@@ -17,4 +17,7 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/@Resources/Atlas/Common.spriteatlas
-Dependencies: []
+Dependencies:
+- C:/Users/User/Desktop/Project/Study/UnitySamples/AssetBundle/Assets/StreamingAssets/Windows/checkmark.unity3d
+- C:/Users/User/Desktop/Project/Study/UnitySamples/AssetBundle/Assets/StreamingAssets/Windows/menu.unity3d
+- C:/Users/User/Desktop/Project/Study/UnitySamples/AssetBundle/Assets/StreamingAssets/Windows/pause.unity3d

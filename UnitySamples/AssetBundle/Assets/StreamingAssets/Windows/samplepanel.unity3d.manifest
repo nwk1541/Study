@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1292142500
+CRC: 686410236
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: eff3bb037309f07cf3a19a45a710a66f
+    Hash: cf1fa211efaac4f00510c586cc074dbd
   TypeTreeHash:
     serializedVersion: 2
     Hash: f75719d3b684ff852c31fed6769157e4
@@ -23,4 +23,7 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/@Resources/Prefabs/SamplePanel.prefab
-Dependencies: []
+Dependencies:
+- C:/Users/User/Desktop/Project/Study/UnitySamples/AssetBundle/Assets/StreamingAssets/Windows/checkmark.unity3d
+- C:/Users/User/Desktop/Project/Study/UnitySamples/AssetBundle/Assets/StreamingAssets/Windows/menu.unity3d
+- C:/Users/User/Desktop/Project/Study/UnitySamples/AssetBundle/Assets/StreamingAssets/Windows/pause.unity3d
