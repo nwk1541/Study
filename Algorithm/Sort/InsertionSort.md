@@ -81,3 +81,7 @@ namespace ConsoleApp2
     }
 }
 ```
+
+## Result
+
+![](./Img/Insertion.PNG)
