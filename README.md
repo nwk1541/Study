@@ -29,6 +29,10 @@
 | [Tree](DataStructure/Tree.md) |
 | [Tree Expand](DataStructure/TreeEx.md) |
 
+| Algorithm |
+|:---------|
+| [InsertionSort](Algorithm/Sort/InsertionSort.md) |
+
 | Unity Sample |
 |:---------|
 | [DataConvert](UnitySamples/DataConvert) |
