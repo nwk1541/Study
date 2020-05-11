@@ -34,6 +34,7 @@
 | [ObjectPooling](UnitySamples/ObjectPooling) |
 | [UIManager](UnitySamples/UIManager) |
 | [Coroutine](UnitySamples/Coroutine) |
+| [AssetBundle](UnitySamples/AssetBundle) |
 
 | External Tools |
 |:---------------|
