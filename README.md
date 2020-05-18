@@ -4,6 +4,7 @@
 * [Tree Expand](DataStructure/TreeEx.md) Red-Black Tree 내용 추가
 * UIManager 좀 별로임, 구조적으로 변경이 필요하고 동작에 대해 충분한 생각이 필요
 * 유니티 애셋번들 SpriteAtlas https://forum.unity.com/threads/spriteatlas-assetbundle-unable-to-use-sprites.494462/
+* DataStructure - Heap
 
 # Readings
 
