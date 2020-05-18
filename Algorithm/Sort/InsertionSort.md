@@ -26,6 +26,8 @@ On average, this method is an O(n log n) operation, where n is Count; in the wor
 
 [삽입 정렬 - 위키백과](https://ko.wikipedia.org/wiki/%EC%82%BD%EC%9E%85_%EC%A0%95%EB%A0%AC)
 
+삽입정렬은 하나의 요소에 대해 정렬된 각 요소들을 모두 비교하기 때문에 시간 복잡도는O(n^2) 이다.
+
 삽입 정렬은 다음과 같은 순서로 동작한다. (오름차순 기준)
 
 1. 자료구조의 두번째 요소부터 시작하여 모든 요소를 앞에서부터 차례대로 비교한다.
@@ -34,60 +36,108 @@ On average, this method is an O(n log n) operation, where n is Count; in the wor
 ## Code
 
 ```cs
-using System;
-using System.Collections.Generic;
-
-namespace ConsoleApp2
+// 상속 받은 Sort 클래스는 신경쓰지 않아도 된다.
+class InsertionSort : Sort
 {
-    class Program
+    public static void Sort(List<int> list)
     {
-        class InsertionSort
+        // 제일 첫 인덱스 + 1 부터 비교를 시작한다. 정렬을 하다보면 알아서 자리를 찾아가기 때문
+        for(int idx = 1; idx < list.Count; idx++)
         {
-            public static void Sort(List<int> list)
+            int current = list[idx];
+            // 모든 요소를 비교할 필요 없이 딱 정렬이 된 부분만 비교 검사하면 된다.
+            for(int secIdx = 0; secIdx < idx; secIdx++)
             {
-                for(int idx = 1; idx < list.Count; idx++)
-                {
-                    int current = list[idx];
-                    for(int secIdx = 0; secIdx < idx; secIdx++)
-                    {
-                        if (list[idx] > list[secIdx])
-                            continue;
+                if (list[idx] > list[secIdx])
+                    continue;
 
-                        int compare = list[secIdx];
+                int compare = list[secIdx];
 
-                        int tmp = list[idx];
-                        list[idx] = list[secIdx];
-                        list[secIdx] = tmp;
-                        Console.WriteLine("Element : {0}, Idx : {1} -> {2}, Element : {3}, Idx : {4} -> {5}", current, idx, secIdx, compare, secIdx, idx);
-                    }
-                }
+                int tmp = list[idx];
+                list[idx] = list[secIdx];
+                list[secIdx] = tmp;
             }
-
-            public static void Print(List<int> list)
-            {
-                for (int idx = 0; idx < list.Count; idx++)
-                    Console.WriteLine("Element : {0}, Idx : {1}", list[idx], idx);
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            List<int> data = new List<int>() { 2, 7, 88, 9, 11, 24, 66, 15, 3, 91, 83, 99, 100 };
-
-            Console.WriteLine("--- Before Sort");
-            InsertionSort.Print(data);
-            Console.WriteLine("--------------\n");
-
-            InsertionSort.Sort(data);
-
-            Console.WriteLine("\n--- After Sort");
-            InsertionSort.Print(data);
-            Console.WriteLine("--------------");
         }
     }
 }
 ```
 
+## CodeAll
+
+```cs
+class Program
+{
+    class InsertionSort
+    {
+        public static void Sort(List<int> list)
+        {
+            for(int idx = 1; idx < list.Count; idx++)
+            {
+                int current = list[idx];
+                for(int secIdx = 0; secIdx < idx; secIdx++)
+                {
+                    if (list[idx] > list[secIdx])
+                        continue;
+
+                    int compare = list[secIdx];
+
+                    int tmp = list[idx];
+                    list[idx] = list[secIdx];
+                    list[secIdx] = tmp;
+                }
+            }
+        }
+    }
+
+    public static void Print(List<int> list, int printCount)
+    {
+        if (list.Count < printCount)
+            Console.WriteLine("'printCount' is greater than 'listCount'");
+
+        for (int idx = 0; idx < printCount; idx++)
+            Console.WriteLine("Element : {0}, Idx : {1}", list[idx], idx);
+    }
+
+    static void Main(string[] args)
+    {
+        int printCount = 10;
+        int loopCount = 10;
+        int randomMax = 10000;
+        Random random = new Random();
+        Stopwatch watch = new Stopwatch();
+        List<int> testData = new List<int>();
+
+        for(int idx = 0; idx < loopCount; idx++)
+        {
+            int num = random.Next(0, randomMax + 1);
+            if(testData.Contains(num))
+            {
+                idx--;
+                continue;
+            }
+
+            testData.Add(num);
+        }
+
+        Console.WriteLine("--- Before Sort");
+        Print(testData, printCount);
+        Console.WriteLine("--------------\n");
+
+        watch.Start();
+        InsertionSort.Sort(testData);
+        watch.Stop();
+
+        Console.WriteLine("\n--- After Sort");
+        Print(testData, printCount);
+        Console.WriteLine("--------------\n");
+
+        Console.WriteLine("Sort : {0}, DataSet : {1}, Time : {2}", "Insertion", randomMax, watch.Elapsed.TotalSeconds);
+    }
+}
+```
+
 ## Result
+
+10000개를 다 보여줄수는 없어서 10개만 출력한 결과
 
 ![](./Img/Insertion.PNG)
