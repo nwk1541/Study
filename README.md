@@ -33,6 +33,7 @@
 | Algorithm |
 |:---------|
 | [InsertionSort](Algorithm/Sort/InsertionSort.md) |
+| [HeapSort](Algorithm/Sort/HeapSort.md)
 
 | Unity Sample |
 |:---------|
