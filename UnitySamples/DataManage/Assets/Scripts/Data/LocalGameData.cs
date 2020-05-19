@@ -1,21 +1,12 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
-public class LocalGameData : MonoBehaviour
+public class LocalGameData
 {
     public DungeonData dungeon = new DungeonData();
     public EnemyData enemy = new EnemyData();
 
-    public void LoadData()
+    public void LoadData(Dictionary<string, object> gameData)
     {
-        TextAsset textAsset = Resources.Load("Data/Data_Game") as TextAsset;
-        if(textAsset == null)
-        {
-            Debug.LogErrorFormat("'TextAsset - Data_Game.json' is null");
-            return;
-        }
-
-        Dictionary<string, object> gameData = MiniJSON.Json.Deserialize(textAsset.text) as Dictionary<string, object>;
         Load(gameData);
     }
 
@@ -33,7 +24,7 @@ public class LocalGameData : MonoBehaviour
         }
     }
 
-    #region Get Data
+    #region Get
     public DungeonData._DungeonData GetDungeonData(int idx)
     {
         return dungeon.dungeons.Find((x) => x.idx == idx);
