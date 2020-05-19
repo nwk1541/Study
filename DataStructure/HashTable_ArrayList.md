@@ -45,7 +45,7 @@ HashTable은 자료구조로서 우수하지만 단점도 있다.
 
 #### Chaining
 
-![](./Img/chaining.png)
+![](./Img/chaining.PNG)
 
 JohnSmith와 SandraDee의 해시값이 같은값을 가리키고 있다 그런데 이후에 John의 값에 Sandra를 연결시켜 버렸다.
 
