@@ -4,7 +4,7 @@ HashTable와 ArrayList에 대해 알아본다. 이 두가지 자료구조는 개
 
 ## ArrayList
 
-크기가 동적으로 증가하는 배열, C#의 List<T> 에서 제너릭형태가 아닌 콜렉션이다.
+크기가 동적으로 증가하는 배열, C#의 List<T> 에서 제너릭형태가 아닌 컬렉션이다.
 
 ```cs
 public class ArrayList : ...
