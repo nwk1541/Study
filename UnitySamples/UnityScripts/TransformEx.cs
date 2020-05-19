@@ -21,11 +21,11 @@ public static class TransformEx
 
     public static Transform FindChildObj(this Transform target, string name, bool includeInactive = true)
     {
-        Transform[] childs = parent.GetComponentsInChildren<Transform>(includeInactive);
+        Transform[] childs = target.GetComponentsInChildren<Transform>(includeInactive);
         foreach (Transform tf in childs)
         {
             if (tf.name == name)
-                return tf.gameObject;
+                return tf;
         }
 
         return null;

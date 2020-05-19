@@ -8,7 +8,7 @@ public class DataConvert
 {
     readonly static string GAME_DATA = "Data_Game.json";
 
-    public static void Load()
+    public static void Convert()
     {
         // 재 가공한 데이터
         Dictionary<string, object> representData = new Dictionary<string, object>();

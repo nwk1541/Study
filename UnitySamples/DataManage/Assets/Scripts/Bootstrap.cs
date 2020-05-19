@@ -28,5 +28,8 @@ public class Bootstrap : MonoBehaviour
         string temp = string.Empty;
         dungeon.enemies.ForEach((x) => temp += x.ToString());
         text[3].text = "EnemyList : " + temp;
+
+        GameObject panel = Instantiate(Resources.Load("UI/SamplePanel") as GameObject);
+        PanelPrefabData data = panel.GetComponent<PanelPrefabData>();
     }
 }
