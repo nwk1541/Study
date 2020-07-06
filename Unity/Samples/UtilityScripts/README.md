@@ -1,4 +1,4 @@
-# UnityScripts
+# UtilityScripts
 
 자주 사용되거나 공용으로 사용할 수 있는 유니티 스크립트들의 모음
 
