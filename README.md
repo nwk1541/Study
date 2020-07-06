@@ -14,9 +14,9 @@
 * CLR 아키텍쳐 https://www.geeksforgeeks.org/architecture-of-common-language-runtime-clr/
 * ColorSpace에 대한 이해1 https://www.kinematicsoup.com/news/2016/6/15/gamma-and-linear-space-what-they-are-how-they-differ
 * ColorSpace에 대한 이해2 https://www.cambridgeincolour.com/tutorials/gamma-correction.htm
-* 유니티 세팅 https://stackoverflow.com/questions/47813465/unity3d-why-scripting-runtime-version-is-net3-5-but-api-compatibility-level
-* Unity ODR https://docs.unity3d.com/kr/2018.4/Manual/AppThinning.html
+* 유니티 세팅 https://stackoverflow.com/questions/47813465/
 
+<!--
 # Study
 
 | Graphics |
@@ -47,3 +47,4 @@
 | External Tools |
 |:---------------|
 | [SonarQube](ExternalTools/SonarQubeSample) |
+-->
