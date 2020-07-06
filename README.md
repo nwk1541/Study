@@ -1,10 +1,9 @@
 # TODO
 
 * 렌더링 파이프라인 각 과정에 대해 더 자세히 조사하고 내용 추가할 것
-* [Tree Expand](DataStructure/TreeEx.md) Red-Black Tree 내용 추가
 * UIManager 좀 별로임, 구조적으로 변경이 필요하고 동작에 대해 충분한 생각이 필요
-* 유니티 애셋번들 SpriteAtlas https://forum.unity.com/threads/spriteatlas-assetbundle-unable-to-use-sprites.494462/
 * DataStructure - Heap
+* [Tree Expand](DataStructure/TreeEx.md) Red-Black Tree 내용 추가
 
 # Readings
 
@@ -16,35 +15,15 @@
 * ColorSpace에 대한 이해2 https://www.cambridgeincolour.com/tutorials/gamma-correction.htm
 * 유니티 세팅 https://stackoverflow.com/questions/47813465/
 
-<!--
 # Study
-
-| Graphics |
-|:---------|
-| [Rendering Pipeline](Graphics/RenderingPipeline.md) |
-
-| Data Structure |
-|:---------|
-| [HashTable_ArrayList](DataStructure/HashTable_ArrayList.md) |
-| [List_vs_Dictionary](DataStructure/List_vs_Dictionary.md) |
-| [Tree](DataStructure/Tree.md) |
-| [Tree Expand](DataStructure/TreeEx.md) |
-
-| Algorithm |
-|:---------|
-| [InsertionSort](Algorithm/Sort/InsertionSort.md) |
-| [HeapSort](Algorithm/Sort/HeapSort.md) |
-| [QuickSort](Algorithm/Sort/QuickSort.md) |
 
 | Unity Sample |
 |:---------|
 | [DataManage](UnitySamples/DataManage) |
-| [ObjectPooling](UnitySamples/ObjectPooling) |
-| [UIManager](UnitySamples/UIManager) |
-| [Coroutine](UnitySamples/Coroutine) |
 | [AssetBundle](UnitySamples/AssetBundle) |
+| [ObjectPooling](UnitySamples/ObjectPooling) |
+| [UnityShaderTutorial](https://github.com/nwk1541/UnityShaderTutorial)
 
 | External Tools |
 |:---------------|
 | [SonarQube](ExternalTools/SonarQubeSample) |
--->
