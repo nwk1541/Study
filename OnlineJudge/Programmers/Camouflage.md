@@ -27,7 +27,6 @@
 
 ## 입출력 예
 
-입출력 예
 | clothes | return |
 |:--------|:-------|
 | [[yellow_hat, headgear], [blue_sunglasses, eyewear], [green_turban, headgear]] | 5 |
