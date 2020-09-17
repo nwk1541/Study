@@ -8,12 +8,8 @@
 # Readings
 
 * Flutter https://medium.com/@pks2974/flutter-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-9532e16aff57
-* MonoGame https://www.monogame.net/
 * CG http://developer.download.nvidia.com/CgTutorial/cg_tutorial_chapter01.html
 * CLR 아키텍쳐 https://www.geeksforgeeks.org/architecture-of-common-language-runtime-clr/
-* ColorSpace에 대한 이해1 https://www.kinematicsoup.com/news/2016/6/15/gamma-and-linear-space-what-they-are-how-they-differ
-* ColorSpace에 대한 이해2 https://www.cambridgeincolour.com/tutorials/gamma-correction.htm
-* 유니티 세팅 https://stackoverflow.com/questions/47813465/
 
 # Study
 
