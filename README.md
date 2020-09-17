@@ -26,4 +26,4 @@
 
 | External Tools |
 |:---------------|
-| [SonarQube](ExternalTools/SonarQubeSample) |
+| [SonarQube](ExternalTools/SonarQubeSample) | 
