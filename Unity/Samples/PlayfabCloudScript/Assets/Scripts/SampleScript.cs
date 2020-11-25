@@ -11,7 +11,7 @@ public class SampleScript : MonoBehaviour
     private void Start()
     {
         guiStyle = new GUIStyle();
-        guiStyle.fontSize = 28;
+        guiStyle.fontSize = 24;
 
         isHideOnGUI = true;
     }
@@ -27,14 +27,29 @@ public class SampleScript : MonoBehaviour
         if (!isHideOnGUI)
             return;
 
+        if(GUI.Button(new Rect(0, Screen.height * 0.5f, Screen.width * 0.1f, Screen.height * 0.1f), "GetTitleData"))
+        {
+            PlayfabManager.GetTitleData();
+        }
+
+        if (GUI.Button(new Rect(0, Screen.height * 0.6f, Screen.width * 0.1f, Screen.height * 0.1f), "GetUserData"))
+        {
+            PlayfabManager.GetUserData("CFD17CF3CB375A50");
+        }
+
+        if (GUI.Button(new Rect(0, Screen.height * 0.7f, Screen.width * 0.1f, Screen.height * 0.1f), "UpdateUserData"))
+        {
+            PlayfabManager.SetUserData();
+        }
+
         if (GUI.Button(new Rect(0, Screen.height * 0.8f, Screen.width * 0.1f, Screen.height * 0.1f), "HelloWorld"))
         {
-            PlayfabManager.OnHelloWorld();
+            PlayfabManager.HelloWorld();
         }
 
         if (GUI.Button(new Rect(0f, Screen.height * 0.9f, Screen.width * 0.1f, Screen.height * 0.1f), "Login"))
         {
-            PlayfabManager.OnLoginPlayfab();
+            PlayfabManager.LoginPlayfab();
         }
     }
 #endif
