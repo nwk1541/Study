@@ -153,3 +153,175 @@ if(!n)
 * 결과
 
 ![](./Imgs/val_undefined_4.PNG)
+
+### 변수 범위
+
+JavaScript에도 전역변수 지역변수 라는 개념이 존재한다.
+해당 기준은 함수의 외부에 있냐 내부에 있냐의 차이이다.
+
+하지만 어떤 키워드를 사용하느냐에 따라 달리지기도 한다.
+
+```js
+if(true)
+{
+    var x = 5;
+}
+console.log(x);
+
+if (true) 
+{
+    let y = 5;
+}
+console.log(y);
+```
+
+* 결과
+
+![](./Imgs/val_scope.PNG)
+
+### 변수 호이스팅
+
+JavaScript의 특징중 한가지로 나중에 선언된 변수를 예외를 받지 않고도 참조가 가능하다. 이를 `호이스팅(hoisting)` 이라고 한다. 어떤 변수를 "끌어올린다." 라는걸 뜻하는데 끌어올려진 변수는 `undefined` 값을 반환한다.
+
+```js
+console.log(x == undefined);
+var x = 3;
+
+/****************************/
+
+var myvar = "my value";
+
+(function() 
+{
+    console.log(myvar); // undefined
+    var myvar = "local value";
+})();
+```
+
+* 개인적인 생각
+
+두번째 구문의 경우 함수 내에 `var` 키워드로 선언된 변수가 상단으로 '끌어올려져'서 undefined 값이 되는것 같다. 즉 블록 외부에 같은 이름의 `var` 키워드로 선언된 변수가 있을 경우 무시되고 블록 내의 변수가 호이스팅 되어 `undefined` 값이 출력 되는듯 하다.
+
+* 결과
+
+![](./Imgs/val_hoisting.PNG)
+
+위 코드는 아래 예제와 동일하다고 볼 수 있다.
+
+```js
+/**
+ * Example 1
+ */
+var x;
+console.log(x === undefined); // logs "true"
+x = 3;
+
+/**
+ * Example 2
+ */
+var myvar = "my value";
+
+(function() 
+{
+    var myvar;
+    console.log(myvar); // undefined
+    myvar = "local value";
+})();
+```
+
+호이스팅 대문에 함수 내의 모든 `var` 문은 가능한 함수 상단 근처에 두는 것이 좋다. 이 방법은 코드를 더욱 명확하게 만들어준다.
+
+### 함수 호이스팅
+
+함수에서는 단지 함수 선언만 상단으로 '끌어올려'지고 함수 표현식은 그렇지 않다.
+
+```js
+/* 함수 선언 */
+
+foo(); // "bar"
+
+function foo() 
+{
+     console.log('bar');
+}
+
+
+/* 함수 표현식 */
+
+baz(); // TypeError: baz is not a function
+
+var baz = function() 
+{
+    console.log('bar2');
+};
+```
+
+* 결과
+
+![](./Imgs/func_hoisting.PNG)
+
+## 상수
+
+`const` 키워드로 읽기 전용 상수를 만들 수 있다. 상수 식별자의 구문은 변수 식별자의 구문과 같다.
+
+```js
+const PI = 3.14;
+```
+
+상수는 스크립트가 실행 중인 동안 대입을 통해 값을 바꾸거나 할당 할 수 없다.
+
+상수에 대한 범위 규칙은 `let` 블록 범위 변수와 동일하다. 만약 `const` 키워드가 생략된 경우에는, 식별 자는 변수를 나타내는 것으로 간주한다.
+
+상수는 같은 범위에 있는 함수나 변수와 동일한 이름으로 선언할 수 없다.
+
+```js
+// 오류가 발생합니다
+function f() {};
+const f = 5;
+
+// 역시 오류가 발생합니다
+function f() {
+    const g = 5;
+    var g;
+
+  //statements
+}
+```
+
+* 결과
+
+![](./Imgs/const_1.PNG)
+
+그러나, 상수에 할당된 객체의 속성은 보호되지 않아서 다음의 문은 문제없이 실행된다.
+
+```js
+const MY_OBJECT = {'key': 'value'};
+MY_OBJECT.key = 'otherValue';
+```
+
+또한 배열의 내용도 보호되지 않아서 다음의 문제 문제없이 실행된다.
+
+```js
+const MY_ARRAY = ['HTML','CSS'];
+MY_ARRAY.push('JAVASCRIPT');
+console.log(MY_ARRAY);
+```
+
+## 데이터 구조 및 형
+
+### 데이터형
+
+최신 ECMAScript 표준은 7가지 데이터 형을 정의한다.
+
+* 6가지의 원시 데이터 형
+    * Boolean, true와 false
+    * null, null 값을 나타내는 특별한 키워드
+    * undefined, 값이 저장되어 있지 않은 최상위 속성
+    * Number, 정수 또는 실수형 숫자
+    * String, 문자열
+    * Symbol 인스턴스가 고유하고 불변인 데이터 형 -> ?
+* Object
+
+### 자료형 변환
+
+JavaScript는 동적 형지정 언어다. 즉 변수를 선언할 때 데이터 형을 지정할 필요가 없음을 의미한다. 또한 데이터 형이 스크립트 실행 도중 필요에 의해 자동으로 변환됨을 뜻한다.
