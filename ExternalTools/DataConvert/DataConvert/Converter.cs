@@ -15,27 +15,36 @@ namespace DataConvert
 
     class Converter
     {
+        private const string DEST_PATH = @"";
+
         private IConvert m_convertMethod = null;
         private Methods m_method = Methods.None;
 
         public void Run(Methods method)
         {
-            string srcPath = string.Empty;
+            string srcPath = GetSourcePath();
 
             m_method = method;
             switch(method)
             {
                 case Methods.ExcelToJson:
-                    m_convertMethod = new ExcelToJson();
+                    m_convertMethod = new ExcelToJson(srcPath);
                     break;
             }
 
             string destPath = string.Empty;
         }
 
-        private void InputPath()
+        private string GetSourcePath()
         {
+            string result = string.Empty;
 
+            while(string.IsNullOrEmpty(result))
+            {
+
+            }
+
+            return result;
         }
 
         private void Export()
