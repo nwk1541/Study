@@ -8,5 +8,19 @@ namespace DataConvert
 {
     class ExcelToJson : IConvert
     {
+        public void Init()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Operation()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

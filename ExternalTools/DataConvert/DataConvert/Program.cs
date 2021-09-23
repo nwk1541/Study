@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             Converter converter = new Converter();
-            converter.Run();
+            converter.Run(Methods.ExcelToJson);
         }
     }
 }

@@ -8,5 +8,8 @@ namespace DataConvert
 {
     interface IConvert
     {
+        void Init();
+        void Operation();
+        void OnError();
     }
 }
