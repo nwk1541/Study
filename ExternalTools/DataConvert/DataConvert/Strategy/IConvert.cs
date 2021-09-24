@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataConvert
+﻿namespace DataConvert
 {
     interface IConvert
     {
         void Init();
-        void Operation();
+        void OnBeforeOperation();
+        string Operation();
+        void OnAfterOperation();
+
         void OnError();
     }
 }

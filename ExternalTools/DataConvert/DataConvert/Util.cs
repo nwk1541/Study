@@ -6,6 +6,16 @@ namespace DataConvert
 {
     public static class Util
     {
+        public static void ReportCode(Enums.ErrorCode code, string desc = null)
+        {
+            string result = string.Format("[ErrorCode]:{0}", code);
+
+            if (desc != null)
+                result += string.Format(" {0}", desc);
+
+            ConsoleText(result);
+        }
+
         public static void ConsoleText(string text)
         {
             Console.WriteLine(text);

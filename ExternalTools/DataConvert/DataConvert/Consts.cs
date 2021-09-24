@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataConvert
 {
-    public static class Const
+    public static class Consts
     {
         public const string SOURCE_PATH = @"./Data";
         public const string DEST_PATH = @"";

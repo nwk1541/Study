@@ -22,35 +22,35 @@ namespace DataConvert
         public void Run(Methods method)
         {
             string srcPath = GetSourcePath();
-            Util.ConsoleText("SourcePath : {0}", srcPath);
+            if(string.IsNullOrEmpty(srcPath))
+            {
+                Util.ReportCode(Enums.ErrorCode.WrongPath, srcPath);
+                return;
+            }
 
             SetConvertMethod(srcPath, method);
+            ConvertOperation();
 
-            string destPath = string.Empty;
+            Export();
         }
 
         private string GetSourcePath()
         {
-            string result = Util.GetFullPath(Const.SOURCE_PATH);
-
-            if(string.IsNullOrEmpty(result))
+            string path = Util.GetFullPath(Consts.SOURCE_PATH);
+            if(!Util.IsDirectoryExists(path))
             {
-                Util.ConsoleText("SourcePath : {0} is NULL or Empty", result);
-                result = null;
-            }
+                Util.ReportCode(Enums.ErrorCode.NotExistDirectory, path);
 
-            if(!Util.IsDirectoryExists(result))
-            {
-                DirectoryInfo dirInfo = Util.CreateDirectory(result);
+                DirectoryInfo dirInfo = Util.CreateDirectory(path);
                 bool isSuccess = dirInfo.Exists;
-                result = isSuccess ? result : null;
+                path = isSuccess ? path : null;
 
-                Util.ConsoleText("Is Directory Not Exists : {0}", result);
-                Util.ConsoleText("Create Directory : {0}", result);
-                Util.ConsoleText("{0}", isSuccess ? "Success" : "Fail");
+                Util.ConsoleText("Create Directory, Result : {0}, Path : {1}", isSuccess, path);
             }
 
-            return result;
+            Util.ConsoleText("SourcePath : {0}", path);
+
+            return path;
         }
 
         private void SetConvertMethod(string _srcPath, Methods method)
@@ -63,6 +63,12 @@ namespace DataConvert
                     m_convertMethod = new ExcelToJson(_srcPath);
                     break;
             }
+        }
+
+        private void ConvertOperation()
+        {
+            if (m_method == Methods.None || m_convertMethod == null)
+                return;
 
             m_convertMethod.Operation();
         }
