@@ -5,3 +5,7 @@ C:\Users\ABISS_4\Desktop\Projects\Study\ExternalTools\DataConvert\DataConvert\ob
 C:\Users\ABISS_4\Desktop\Projects\Study\ExternalTools\DataConvert\DataConvert\obj\Debug\DataConvert.csproj.CoreCompileInputs.cache
 C:\Users\ABISS_4\Desktop\Projects\Study\ExternalTools\DataConvert\DataConvert\obj\Debug\DataConvert.exe
 C:\Users\ABISS_4\Desktop\Projects\Study\ExternalTools\DataConvert\DataConvert\obj\Debug\DataConvert.pdb
+C:\Users\ABISS_4\Desktop\Projects\Study\ExternalTools\DataConvert\DataConvert\bin\Debug\NanoXLSX.dll
+C:\Users\ABISS_4\Desktop\Projects\Study\ExternalTools\DataConvert\DataConvert\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ABISS_4\Desktop\Projects\Study\ExternalTools\DataConvert\DataConvert\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ABISS_4\Desktop\Projects\Study\ExternalTools\DataConvert\DataConvert\obj\Debug\DataConvert.csproj.CopyComplete

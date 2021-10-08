@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataConvert
+﻿namespace DataConvert
 {
     public static class Consts
     {
         public const string SOURCE_PATH = @"./Data";
-        public const string DEST_PATH = @"";
+        public const string DEST_PATH = @"./Result";
     }
 }

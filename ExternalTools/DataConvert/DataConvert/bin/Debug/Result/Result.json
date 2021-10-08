@@ -1,0 +1,52 @@
+{
+  "Character": [
+    {
+      "ID": 1.0,
+      "Race": "Human",
+      "Faction": "Alliance",
+      "Class": "Priest"
+    },
+    {
+      "ID": 2.0,
+      "Race": "Gnome",
+      "Faction": "Alliance",
+      "Class": "Wizard"
+    },
+    {
+      "ID": 3.0,
+      "Race": "Dwarp",
+      "Faction": "Alliance",
+      "Class": "Hunter"
+    },
+    {
+      "ID": 4.0,
+      "Race": "NightElf",
+      "Faction": "Alliance",
+      "Class": "Thief"
+    },
+    {
+      "ID": 5.0,
+      "Race": "Orc",
+      "Faction": "Horde",
+      "Class": "Warrior"
+    },
+    {
+      "ID": 6.0,
+      "Race": "Tauren",
+      "Faction": "Horde",
+      "Class": "Druid"
+    },
+    {
+      "ID": 7.0,
+      "Race": "Undead",
+      "Faction": "Horde",
+      "Class": "DeathKnight"
+    },
+    {
+      "ID": 8.0,
+      "Race": "Troll",
+      "Faction": "Horde",
+      "Class": "Hunter"
+    }
+  ]
+}

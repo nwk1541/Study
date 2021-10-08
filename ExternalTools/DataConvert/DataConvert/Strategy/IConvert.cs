@@ -4,8 +4,9 @@
     {
         void Init();
         void OnBeforeOperation();
-        string Operation();
+        void Operation();
         void OnAfterOperation();
+        void Export();
 
         void OnError();
     }

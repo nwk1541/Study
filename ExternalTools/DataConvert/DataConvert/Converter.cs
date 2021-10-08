@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataConvert
 {
@@ -21,15 +18,15 @@ namespace DataConvert
 
         public void Run(Methods method)
         {
-            string srcPath = GetSourcePath();
-            if(string.IsNullOrEmpty(srcPath))
+            string sourcePath = GetSourcePath();
+            if(string.IsNullOrEmpty(sourcePath))
             {
-                Util.ReportCode(Enums.ErrorCode.WrongPath, srcPath);
+                Util.ReportCode(Enums.ErrorCode.WrongPath, sourcePath);
                 return;
             }
 
-            SetConvertMethod(srcPath, method);
-            ConvertOperation();
+            SetConvertMethod(sourcePath, method);
+            Convert();
 
             Export();
         }
@@ -37,7 +34,7 @@ namespace DataConvert
         private string GetSourcePath()
         {
             string path = Util.GetFullPath(Consts.SOURCE_PATH);
-            if(!Util.IsDirectoryExists(path))
+            if(!Util.IsExistDirectory(path))
             {
                 Util.ReportCode(Enums.ErrorCode.NotExistDirectory, path);
 
@@ -53,19 +50,19 @@ namespace DataConvert
             return path;
         }
 
-        private void SetConvertMethod(string _srcPath, Methods method)
+        private void SetConvertMethod(string srcPath, Methods method)
         {
             m_method = method;
 
             switch (method)
             {
                 case Methods.ExcelToJson:
-                    m_convertMethod = new ExcelToJson(_srcPath);
+                    m_convertMethod = new ExcelToJson(srcPath);
                     break;
             }
         }
 
-        private void ConvertOperation()
+        private void Convert()
         {
             if (m_method == Methods.None || m_convertMethod == null)
                 return;
@@ -75,8 +72,7 @@ namespace DataConvert
 
         private void Export()
         {
-            // TODO : 
-            // Const.DEST_PATH
+            m_convertMethod.Export();
         }
     }
 }

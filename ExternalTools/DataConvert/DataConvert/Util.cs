@@ -31,7 +31,7 @@ namespace DataConvert
             return Path.GetFullPath(path);
         }
 
-        public static bool IsDirectoryExists(string path)
+        public static bool IsExistDirectory(string path)
         {
             DirectoryInfo dirInfo = new DirectoryInfo(path);
             return dirInfo != null ? dirInfo.Exists : false;
