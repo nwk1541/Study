@@ -43,6 +43,9 @@ namespace DataConvert
 
         public void OnBeforeOperation() 
         {
+            // 본 로직 진입 전 사전 예외 검사 및 처리 단계
+
+            // 해당 경로에 엑셀 파일이 있는지 검사
             string path = Util.GetFullPath(Consts.SOURCE_PATH);
             FileInfo[] files = m_dirInfo.GetFiles();
             if (files.Length <= 0)
@@ -51,6 +54,7 @@ namespace DataConvert
                 throw new Exception("Throwed Defined Exception");
             }
 
+            // 확장자가 엑셀 파일인지 검사
             for(int idx = 0; idx < files.Length; idx++)
             {
                 FileInfo fileInfo = files[idx];
@@ -75,15 +79,18 @@ namespace DataConvert
             {
                 OnBeforeOperation();
 
+                // 지정된 경로의 모든 파일들을 순회
                 FileInfo[] files = m_dirInfo.GetFiles();
                 for(int idx = 0; idx < files.Length; idx++)
                 {
                     FileInfo fileInfo = files[idx];
 
+                    // NanoXLSX라는 외부 패키지 사용, 엑셀 파일을 추상화해서 조작이 가능하게 함
                     string filePath = string.Format("{0}/{1}", m_sourcePath, fileInfo.Name);
                     Workbook workBook = Workbook.Load(filePath);
                     Util.ConsoleText("Current FilePath : {0}", filePath);
 
+                    // 엑셀 파일안에 모든 시트를 순회
                     List<Worksheet> workSheets = workBook.Worksheets;
                     for(int secIdx = 0; secIdx < workSheets.Count; secIdx++)
                     {
@@ -91,6 +98,7 @@ namespace DataConvert
                         string sheetName = workSheet.SheetName;
                         Util.ConsoleText("Current SheetName : {0}", sheetName);
 
+                        // 최종 데이터 초기화
                         if (!m_values.ContainsKey(sheetName))
                             m_values.Add(sheetName, new List<Dictionary<string, object>>());
 
@@ -98,20 +106,24 @@ namespace DataConvert
                         List<string> tempKeyValue = new List<string>();
                         int prevRow = -1;
 
+                        // 시트의 각 행열을 순회, 첫 행은 데이터를 구분하기 위한 키값으로 사용
                         foreach(var item in workSheet.Cells)
                         {
                             Cell cell = item.Value;
                             int currentRow = cell.RowNumber;
 
+                            // 신규 행 구분 변수, 엑셀의 데이터 하나하나를 다 순회하기 때문에 각 행을 구분할 수 있도록
                             bool isNewRow = prevRow != currentRow;
                             if (isNewRow)
                                 prevRow = currentRow;
 
+                            // 첫번째 행 구분 변수
                             bool isKeyRow = currentRow == 0;
                             if (isKeyRow)
-                                tempKeyValue.Add(cell.Value.ToString());
+                                tempKeyValue.Add(cell.Value.ToString()); // 임시 키값 기록
                             else
                             {
+                                // 신규 행, 새로운 데이터 추가
                                 if (isNewRow)
                                     sheetValues.Add(new Dictionary<string, object>());
 
@@ -133,6 +145,7 @@ namespace DataConvert
 
         public void OnAfterOperation() 
         {
+            // 내보내기 경로 확인
             string path = Util.GetFullPath(Consts.DEST_PATH);
             if (!Util.IsExistDirectory(path))
             {

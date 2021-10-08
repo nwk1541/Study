@@ -33,6 +33,7 @@ namespace DataConvert
 
         private string GetSourcePath()
         {
+            // 현재 실행파일 경로를 기반으로 소스 경로를 만듦
             string path = Util.GetFullPath(Consts.SOURCE_PATH);
             if(!Util.IsExistDirectory(path))
             {
