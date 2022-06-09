@@ -4,3 +4,5 @@
 * CG http://developer.download.nvidia.com/CgTutorial/cg_tutorial_chapter01.html
 * CLR 아키텍쳐 https://www.geeksforgeeks.org/architecture-of-common-language-runtime-clr/
 * https://blogs.unity3d.com/kr/2015/12/23/1k-update-calls/
+* https://forum.unity.com/threads/c-coroutine-waitforseconds-garbage-collection-tip.224878/
+* https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
