@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 /*
  * UnityEngine.Debug를 대체하는 Debug 클래스
- * 유니티 에디터와 Deveopment Build 일때만 동작한다.
+ * 유니티 에디터와 Development Build 일때만 동작한다.
  */
 
 public static class Debug
