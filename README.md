@@ -3,6 +3,7 @@
 * Flutter https://medium.com/@pks2974/flutter-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-9532e16aff57
 * CG http://developer.download.nvidia.com/CgTutorial/cg_tutorial_chapter01.html
 * CLR 아키텍쳐 https://www.geeksforgeeks.org/architecture-of-common-language-runtime-clr/
-* https://blogs.unity3d.com/kr/2015/12/23/1k-update-calls/
-* https://forum.unity.com/threads/c-coroutine-waitforseconds-garbage-collection-tip.224878/
-* https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+* Unity 이벤트 함수 호출 https://blogs.unity3d.com/kr/2015/12/23/1k-update-calls/
+* WaitForSecons 최적화 팁 https://forum.unity.com/threads/c-coroutine-waitforseconds-garbage-collection-tip.224878/
+* 2D 충돌 탐지 https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+* 공변성, 반공변성 https://docs.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance
