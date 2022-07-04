@@ -1,14 +1,9 @@
-﻿#if UNITY_EDITOR || DEVEOPMENT_BUILD
+#if UNITY_EDITOR || DEVEOPMENT_BUILD
 #define DEBUG
 #endif
 
 using UnityEngine;
 using System.Diagnostics;
-
-/*
- * UnityEngine.Debug를 대체하는 Debug 클래스
- * 유니티 에디터와 Development Build 일때만 동작한다.
- */
 
 public static class Debug
 {
@@ -64,5 +59,17 @@ public static class Debug
     public static void LogWarningFormat(string format, params object[] args)
     {
         UnityEngine.Debug.LogWarningFormat(format, args);
+    }
+
+    [Conditional("DEBUG")]
+    public static void Assert(bool cond, string format)
+    {
+        UnityEngine.Debug.Assert(cond, format);
+    }
+
+    [Conditional("DEBUG")]
+    public static void AssertFormat(bool cond, string format, params object[] args)
+    {
+        UnityEngine.Debug.AssertFormat(cond, format, args);
     }
 }
