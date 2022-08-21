@@ -3,15 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Manager : MonoBehaviour
 {
+    public static Manager Instance { get { return instance; } }
+    private static Manager instance;
     private static AsyncOperationHandle opHandle;
 
     private void Awake()
     {
+        instance = this;
+
         AsyncOperationHandle handle = Addressables.InitializeAsync();
         handle.Completed += (op) =>
         {

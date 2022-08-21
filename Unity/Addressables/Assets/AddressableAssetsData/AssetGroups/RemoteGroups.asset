@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 1f73ef85c982e054f96b19692b2808dd
   m_SerializeEntries:
-  - m_GUID: 24b8c87752cac5a40a778b7ad0a6efc7
-    m_Address: Sphere
+  - m_GUID: 7b678216aef02b740ba8ffa7f459a76b
+    m_Address: Capsule
     m_ReadOnly: 0
     m_SerializedLabels:
     - Common
@@ -27,8 +27,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Common
-  - m_GUID: 7b678216aef02b740ba8ffa7f459a76b
-    m_Address: Capsule
+  - m_GUID: 24b8c87752cac5a40a778b7ad0a6efc7
+    m_Address: Sphere
     m_ReadOnly: 0
     m_SerializedLabels:
     - Common
