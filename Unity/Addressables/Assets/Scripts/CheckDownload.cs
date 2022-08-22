@@ -13,12 +13,10 @@ public class CheckDownload : MonoBehaviour
 
     private void Start()
     {
-        AsyncOperationHandle<long> handle = Addressables.GetDownloadSizeAsync("Common");
-        handle.Completed += (op) =>
+        Manager.Instance.GetDownloadSize((res) =>
         {
-            long downloadSize = op.Result;
-            size.text = downloadSize.ToString();
-        };
+            size.text = res.ToString();
+        });
 
         downloadButton.onClick.AddListener(OnClickButton);
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: RemoteGroups
   m_Data:
     m_SerializedData: []
-  m_GUID: 1f73ef85c982e054f96b19692b2808dd
+  m_GUID: bcc57a8cf43c44842b8100d2df6aa6c9
   m_SerializeEntries:
   - m_GUID: 7b678216aef02b740ba8ffa7f459a76b
     m_Address: Capsule
@@ -32,9 +32,24 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Common
+  - m_GUID: a4d1d12b13ac98d4caf4523017dad286
+    m_Address: Assets/Materials/Blue.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Common
+  - m_GUID: b83abe7151d64b149a6ec84d17c7113c
+    m_Address: Assets/Materials/Green.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Common
+  - m_GUID: ada987bff4a30c048a9242f231334f3a
+    m_Address: Assets/Materials/Red.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Common
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: dac2a145c5fb5f84dace0a5e3e391dfc, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 7162f3f906d71be4fbe21684f2618840, type: 2}
-    - {fileID: 11400000, guid: d8cd58e239da36247924aaccd54131ca, type: 2}
+    - {fileID: 11400000, guid: e6b7a72171e542643bab4dde529d27e3, type: 2}
+    - {fileID: 11400000, guid: 9478105545e698b44bfb1c238afa1f53, type: 2}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d17a21594effb4e9591490b009e7aa, type: 3}
   m_Name: RemoteGroups_BundledAssetGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 1a8d0b504411ac04b9a99e253f8c42bd, type: 2}
+  m_Group: {fileID: 11400000, guid: 5226dfe3c3cefa84e9b48ee78a3783e7, type: 2}
   m_InternalBundleIdMode: 1
   m_Compression: 1
   m_IncludeAddressInCatalog: 1
