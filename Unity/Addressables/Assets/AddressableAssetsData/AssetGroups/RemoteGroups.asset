@@ -32,21 +32,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Common
-  - m_GUID: a4d1d12b13ac98d4caf4523017dad286
-    m_Address: Assets/Materials/Blue.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Common
-  - m_GUID: b83abe7151d64b149a6ec84d17c7113c
-    m_Address: Assets/Materials/Green.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Common
-  - m_GUID: ada987bff4a30c048a9242f231334f3a
-    m_Address: Assets/Materials/Red.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Common
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: dac2a145c5fb5f84dace0a5e3e391dfc, type: 2}
   m_SchemaSet:

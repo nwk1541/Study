@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.Networking;
 using System.IO;
@@ -25,7 +25,7 @@ public class Manager : MonoBehaviour
     public static Manager Instance { get { return instance; } }
     private static Manager instance;
 
-    public TextMeshProUGUI sizeText;
+    public Text sizeText;
 
     private List<string> objectLabels = new List<string>() { "Cube", "Sphere", "Capsule" };
     private List<float> objectXPos = new List<float>() { -5f, 0f, 5f };
@@ -38,7 +38,8 @@ public class Manager : MonoBehaviour
     {
         instance = this;
         
-        CDNInfo.URL = "https://my-addr-test.s3.ap-northeast-2.amazonaws.com";
+        // TODO : 
+        CDNInfo.URL = "";
     }
 
     public void Initalize()
@@ -272,8 +273,8 @@ public class Manager : MonoBehaviour
         guiPos = new Rect(0f, Screen.height * 0.5f, guiWidth, guiHeight);
         if (GUI.Button(guiPos, "Clear"))
         {
-            resLocator = null;
-            Addressables.ClearResourceLocators();
+            Caching.ClearCache();
+            //Addressables.ClearDependencyCacheAsync();
         }
 
         guiPos = new Rect(Screen.width * 0.1f, Screen.height * 0.5f, guiWidth, guiHeight);
