@@ -15,4 +15,9 @@ public class Monster : CharacterBase
         base.Release();
     }
     #endregion
+
+    public override void Hit(int damage)
+    {
+        base.Hit(damage);
+    }
 }
