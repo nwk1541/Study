@@ -48,4 +48,4 @@ All responses must be in Korean (한국어).
 - Always check the callers and references of the target before writing code.
 - If a signature, return value, or core state is modified, first identify and explicitly state the expected scope of impact.
 - **Few callers (≤ 10):** Check all callers and, if necessary, update them to match the changes.
-- **Many callers (utils, common functions, etc.):** As a rule, maintain the existing signature and behavior, modifying only the internal implementation. If modifying the signature is unavoidable and widespread changes are expected, **never proceed arbitrarily; report to the user and wait for confirmation before proceeding.**
+- **Many callers (utils, common functions, etc.):** As a rule, maintain the existing signature and behavior, modifying only the internal implementation. If new functionality is needed, prioritize adding an overload. If modifying the signature is unavoidable and widespread changes are expected, **never proceed arbitrarily; report to the user and wait for confirmation before proceeding.**
