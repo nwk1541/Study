@@ -9,7 +9,8 @@ All responses must be in Korean (한국어).
 ### 1. Think Before Coding
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
 - State your assumptions explicitly. If uncertain about the codebase or request, ask for clarification.
-- If multiple interpretations or architectural choices exist, present them first—don't pick silently.
+- If multiple interpretations or architectural choices exist, present them with comparison—don't pick silently.
+- Even when the user specifies particular files or a modification direction, if a structurally better alternative exists, always propose it.
 - If a simpler approach exists, say so. Push back when a request seems overly complex.
 - If something is unclear, stop. Name what's confusing and ask.
 
