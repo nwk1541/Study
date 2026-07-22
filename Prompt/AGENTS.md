@@ -2,11 +2,28 @@
 
 All responses must be in Korean (한국어).
 
+---
+
+## File Encoding
+
+- 모든 텍스트 파일은 UTF-8 with BOM으로 읽고 저장한다.
+- PowerShell에서 한글이 포함된 텍스트 파일을 읽을 때는 `Get-Content -Encoding UTF8`을 사용한다.
+
+## Coding Conventions
+
+- private 필드는 `_camelCase`를 사용한다. 예: `_videoPlayer`, `_isLoading`
+- enum은 주로 `E` 접두사를 사용한다. 예: `EBattlePopupType`, `EAppState`
+- 상수(`const`)는 `UPPER_SNAKE_CASE`를 사용한다. 예: `CATEGORY_NAME`, `KEY_SORT_OPTION`
+- `bool` 조건은 `== true` / `== false` 비교 대신 `if (condition)` / `if (!condition)` 형태를 사용한다.
+
+---
+
 ## 코딩 가이드라인(Coding Guidelines)
 
 **트레이드오프(Tradeoff):** 본 가이드라인은 속도보다 정확성, 성능, 신중함을 우선시한다. 단, 사소한 작업은 본인의 판단에 따른다.
 
 ### 1. 코딩 전에 생각하기(Think Before Coding)
+
 **추측하지 말 것. 혼란을 숨기지 말 것. 트레이드오프를 수면 위로 드러낼 것.**
 - 본인의 가정을 명확히 밝힌다. 코드베이스나 요청 사항이 불확실하다면 구체적인 설명을 요청한다.
 - 여러 해석이나 아키텍처 선택지가 존재한다면 임의로 선택하지 말고 비교하여 제시한다.
@@ -15,6 +32,7 @@ All responses must be in Korean (한국어).
 - 불명확한 부분이 있다면 작업을 멈추고, 무엇이 혼란스러운지 정확히 명시한 후 질문한다.
 
 ### 2. 단순함 우선(Simplicity First)
+
 **문제를 해결하는 최소한의 코드를 작성할 것. 추측성 코드는 작성하지 않는다.**
 - 명시적으로 요청된 것 이상의 기능을 추가하지 않는다.
 - 단발성 코드를 위해 추상화, 인터페이스, 제네릭 클래스를 만들지 않는다.
@@ -24,6 +42,7 @@ All responses must be in Korean (한국어).
 - 스스로 "시니어 엔지니어가 이 코드를 보고 지나치게 복잡하다고 할 것인가?"라고 묻고, 그렇다면 단순화한다.
 
 ### 3. 정밀한 변경(Surgical Changes)
+
 **꼭 필요한 부분만 수정하고, 본인의 작업으로 인해 발생한 문제만 정리할 것.**
 - 기존 코드를 수정할 때, 단순히 인접해 있다는 이유로 무관한 코드, 주석, 포맷팅을 임의로 "개선"하지 않는다.
 - 정상적으로 동작하는 코드를 리팩토링하지 않는다.
@@ -33,6 +52,7 @@ All responses must be in Korean (한국어).
 - **테스트 기준:** 변경된 모든 코드 라인은 사용자의 구체적인 요청과 직접적으로 연결되어야 한다.
 
 ### 4. 목표 기반 실행 & 명시적 계획(Goal-Driven Execution & Explicit Planning)
+
 **성공 기준을 정의하고, 코딩 전 마크다운(Markdown)으로 계획을 작성할 것. 검증될 때까지 반복한다.**
 - **Markdown 계획 우선:** 특정 구현 접근 방식이 확립되면, 실제 코드를 작성하기 전에 반드시 마크다운을 사용해 명확하고 단계적인 계획을 출력한다.
 - 작업을 검증 가능한 목표로 변환한다:
@@ -45,6 +65,7 @@ All responses must be in Korean (한국어).
   3. [단계] → 검증: [확인 방법]
 
 ### 5. 영향도 분석(Impact Analysis)
+
 **수정 전 영향 범위를 파악하고, 그 범위에 맞는 전략을 선택할 것.**
 - 코드 작성 전에 항상 대상의 호출자(caller)와 참조(reference)를 확인한다.
 - 시그니처(signature), 반환 값(return), 핵심 상태가 수정되는 경우 예상되는 영향 범위를 먼저 명시한다.

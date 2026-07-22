@@ -2,6 +2,22 @@
 
 All responses must be in Korean (한국어).
 
+---
+
+## File Encoding
+
+- 모든 텍스트 파일은 UTF-8 with BOM으로 읽고 저장한다.
+- PowerShell에서 한글이 포함된 텍스트 파일을 읽을 때는 `Get-Content -Encoding UTF8`을 사용한다.
+
+## Coding Conventions
+
+- private 필드는 `_camelCase`를 사용한다. 예: `_videoPlayer`, `_isLoading`
+- enum은 주로 `E` 접두사를 사용한다. 예: `EBattlePopupType`, `EAppState`
+- 상수(`const`)는 `UPPER_SNAKE_CASE`를 사용한다. 예: `CATEGORY_NAME`, `KEY_SORT_OPTION`
+- `bool` 조건은 `== true` / `== false` 비교 대신 `if (condition)` / `if (!condition)` 형태를 사용한다.
+
+---
+
 ## 코딩 가이드라인(Coding Guidelines)
 
 **트레이드오프(Tradeoff):** 정확성, 성능, 신중함을 우선하되 작업의 위험도와 규모에 맞게 판단한다.
