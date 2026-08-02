@@ -1,4 +1,4 @@
-# AGENTS.md
+﻿# AGENTS.md
 
 All responses must be in Korean (한국어).
 
@@ -14,6 +14,7 @@ All responses must be in Korean (한국어).
 - private 필드는 `_camelCase`를 사용한다. 예: `_videoPlayer`, `_isLoading`
 - 상수(`const`)는 `UPPER_SNAKE_CASE`를 사용한다. 예: `CATEGORY_NAME`, `KEY_SORT_OPTION`
 - `bool` 조건은 `== true` / `== false` 비교 대신 `if (condition)` / `if (!condition)` 형태를 사용한다.
+- 메서드 선언과 호출의 매개변수 목록은 길어도 여러 줄로 나누지 않고 한 줄로 유지한다.
 
 ---
 
