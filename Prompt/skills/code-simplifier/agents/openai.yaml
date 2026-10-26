@@ -1,0 +1,6 @@
+interface:
+  display_name: "Code Simplifier"
+  short_description: "Simplify scoped code with minimal procedural constraints"
+  default_prompt: "Use $code-simplifier to review or simplify user-specified code or defined changes while preserving externally observable behavior and relevant contracts."
+policy:
+  allow_implicit_invocation: false
