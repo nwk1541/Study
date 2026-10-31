@@ -14,9 +14,9 @@ All responses must be in Korean (한국어).
 
 ## 작업 도구 및 사용 기준
 - 탐색은 기본적으로 `rg`를 사용한다. C# 코드 구조를 구분하느라 정규식 작성이나 결과 검토가 복잡해질 때는 `ast-grep`을 사용하며, 가능한 경우 대상 범위를 먼저 좁힌다.
-- sqlite3: `Tools/sqlite-tools-win-x64-3530200/sqlite3.exe`
-- 디버그 SQLite DB: `Assets/DesignData/DBFiles/debug/*.db`, 조사 시 읽기 전용으로 조회한다.
-- python
+- sqlite3: `C:\Users\nwk15\Tools\sqlite-tools-win-x64-3530400`
+- py(python)
+- unity(unity cli)
 
 ---
 
